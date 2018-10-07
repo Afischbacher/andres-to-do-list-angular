@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
 
+// Basic unit test to test angular component
 describe('andres-to-do-list-app App', () => {
   let page: AppPage;
 
@@ -7,8 +8,8 @@ describe('andres-to-do-list-app App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display app title', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getAppTitle()).toEqual("Andre's To Do List App");
   });
 });

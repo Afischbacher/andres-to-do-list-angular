@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <span>{{title}}</span>
+  <span id="title">{{title}}</span>
   <span class="menu-spacer"></span>
   <button mat-icon-button (click)="addToDo()">
     <mat-icon>add</mat-icon>
@@ -16,7 +16,7 @@
         </mat-card-content>
         <mat-card-actions>
           <button mat-icon-button (click)="editToDo(toDoItem)"><mat-icon>edit</mat-icon></button>
-          <button mat-icon-button (click)="deleteToDo(toDoItem.Id)"><mat-icon>delete</mat-icon></button>
+          <button mat-icon-button (click)="deleteToDo(toDoItem.Id)"><mat-icon>check</mat-icon></button>
         </mat-card-actions>
       </mat-card>
     </div>

@@ -7,8 +7,11 @@ import { environment } from "../../environments/environment";
 
 @Injectable()
 export class ToDoService {
+
+    // Inject HttpClient service
     constructor(private http: HttpClient){}
 
+    // HTTP Post request t
     createToDo(toDoItem: ToDoItem): Observable<boolean> {
         return this.http.post<boolean>(`${environment.apiUrl}/ToDo/CreateToDo`, toDoItem);
     }

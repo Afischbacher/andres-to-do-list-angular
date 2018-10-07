@@ -11,19 +11,21 @@ import { AddToDoDialogComponent } from './add-todo-dialog/add-todo-dialog.compon
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent implements OnInit {
 
+  // Inject the to do service and the material dialog service
   constructor(private toDoService : ToDoService, private matDialog: MatDialog){}
+
   toDoItems : ToDoItem[];
-
-  inputDisabled = true;
-
   title = "Andre's To Do List App";
 
+  // Retrieve the collection of to do items on component initialization
   ngOnInit(): void {
     this.getToDoItems();
   }
 
+  // Opens a material dialog to edit the to do item
   editToDo(toDoItem: ToDoItem): void {
     
      this.matDialog.open(EditToDoDialogComponent, {
@@ -32,6 +34,8 @@ export class AppComponent implements OnInit {
      });
   }
 
+  
+  // Opens a material dialog to create a new to do item
   addToDo() : void {
     this.matDialog.open(AddToDoDialogComponent, {
       width: '50%'
@@ -40,6 +44,7 @@ export class AppComponent implements OnInit {
     })
   }
 
+  // Deletes a to do item from the to do list
   deleteToDo(id: number): void {
     this.toDoService.deleteToDo(id).subscribe(response =>{
         
@@ -48,6 +53,7 @@ export class AppComponent implements OnInit {
     },error => console.log(error));
   }
 
+  // Gets all of the current to do list items
   getToDoItems(): void {
     
     this.toDoService.getToDos().subscribe((items: ToDoItem[]) => {
