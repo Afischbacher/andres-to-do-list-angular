@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Add To Do</h2>
+
+<mat-dialog-content>
+    <mat-form-field class="full-width-input">
+    
+    <textarea (keyup)="toDo = $event.target.value;" matInput>
+        
+    </textarea>
+    </mat-form-field>
+
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+    <button class="mat-raised-button" (click)="close()">Close</button>
+    <button class="mat-raised-button mat-primary" (click)="addToDo()">Save</button>
+</mat-dialog-actions>
